@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: turnos
+  datasource:
+    # Railway: setear DB_URL=jdbc:postgresql://<host>:<port>/<db>, DB_USER y DB_PASSWORD
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/turnos}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
