@@ -1,0 +1,3 @@
+# mvnw tiene que quedar con LF aunque core.autocrlf=true, si no falla en Linux (Docker/Railway)
+backend/mvnw text eol=lf
+*.cmd text eol=crlf
